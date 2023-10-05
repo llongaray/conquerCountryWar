@@ -1,0 +1,46 @@
+country_event = {
+    id = 99999
+    title = "Evento de Conquista"
+    desc = "O que você deseja fazer com o país inimigo?"
+
+    trigger = {
+        year = 1840
+        is_greater_power = yes
+        has_war = yes
+        war_with = 1  # O jogador está em guerra com apenas um país
+        war_goal = {
+            has_add_core = yes  # O jogador invadiu pelo menos um core do país inimigo
+        }
+    }
+
+    mean_time_to_happen = {
+        months = 6
+    }
+
+    option = {
+        name = "EVTOPTA_Conquistar"
+        is_triggered_only = yes  # Apenas o país do jogador pode disparar essa opção
+        add_war_goal = {
+                type = conquest  # O tipo de wargoal é "conquista"
+                target = PREV  # O país inimigo é o alvo do wargoal
+                score = 99  # O valor do wargoal é 99
+    }
+    add_war_score = {
+        who = ROOT
+        value = 100  # Adiciona pontos de guerra ao país do jogador
+    }
+    add_prestige = 5
+    add_infamy = 15
+}
+
+    option = {
+        name = "EVTOPTB_Humilhar"
+        add_prestige = 20
+    }
+
+    option = {
+        name = "EVTOPTC_PazBranca"
+        add_prestige = 25
+        add_infamy = -9999  # Reduz a infâmia para zero (não há uma maneira direta de definir um valor para zero)
+    }
+}
